@@ -1,4 +1,4 @@
-package practiceProblems;
+package fallingSand;
 
 import apcs.*;
 
@@ -16,12 +16,26 @@ public class FallingSand {
 			
 			for(int i = 0; i < 10; i++)
 			{
-				int x = Window.mouse.getX();
-				x += Window.random(-10, 10);
-				int y = Window.mouse.getY();
-				y += Window.random(-10, 10);
-				if (x < 500 && x >= 0 && y < 500 && y >= 0)
-					grid[x][y] = 1;
+				if (Window.key.pressed("s"))
+				{
+					int x = Window.mouse.getX();
+					x += Window.random(-10, 10);
+					int y = Window.mouse.getY();
+					y += Window.random(-10, 10);
+					if (x < 500 && x >= 0 && y < 500 && y >= 0)
+						grid[x][y] = 1;
+				}
+			}
+			
+			if (Window.key.pressed("c"))
+			{
+				for (int x = 0; x < 500; x++)
+				{
+					for (int y = 0; y < 500; y++)
+					{
+						grid[x][y] = 0;
+					}
+				}
 			}
 			
 			move(grid);
